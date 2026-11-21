@@ -46,4 +46,43 @@ document.getElementById("exportListings").onclick=()=>csvDownload("hoc-listings.
 function drawReport(){let f=document.getElementById("frequency").value,section=document.getElementById("reportSection").value,n=document.getElementById("reportNote");if(f!=="monthly"){n.textContent="No verified "+f+" source data has been imported. Monthly reporting periods cannot be divided into real "+f+" results. Import dated Search Console records before using this view.";document.getElementById("reportContent").innerHTML="<p>Daily/weekly figures unavailable — no fabricated estimates shown.</p>";return}n.textContent="Monthly historical periods are based on the original verified GSC date windows, not calendar-month totals. November has 29 days. Rankings are team-reported snapshots.";let columns=section==="traffic"?[["period","Period"],["clicks","Clicks"],["impressions","Impressions"],["position","Avg position"]]:section==="rankings"?[["period","Period"],["top3","Top 3"],["top10","Top 10"],["top20","Top 20"]]:section==="listings"?[]:[["period","Period"],["days","Days"],["clicks","Clicks"],["impressions","Impressions"],["position","Position"],["top10","Top 10"]];if(section==="listings"){document.getElementById("reportContent").innerHTML="<h3>Listings overview</h3><p>"+listings.length+" tracked · "+listings.filter(x=>x.status==="live").length+" manually verified live · "+listings.filter(x=>x.status==="broken").length+" broken</p>";return}document.getElementById("reportContent").innerHTML='<table><thead><tr>'+columns.map(c=>"<th>"+c[1]+"</th>").join("")+'</tr></thead><tbody>'+records.map(r=>"<tr>"+columns.map(c=>"<td>"+esc(r[c[0]])+"</td>").join("")+"</tr>").join("")+"</tbody></table>"}
 document.getElementById("frequency").onchange=drawReport;document.getElementById("reportSection").onchange=drawReport;document.getElementById("printReport").onclick=()=>window.print();document.getElementById("exportReport").onclick=()=>csvDownload("hoc-seo-history.csv",[["Period","Days","Clicks","Impressions","Position","Top 3","Top 10","Top 20"],...records.map(r=>[r.period,r.days,r.clicks,r.impressions,r.position,r.top3,r.top10,r.top20])]);
 document.getElementById("entry").onsubmit=e=>{e.preventDefault();let r={};for(const [id,,type] of fields){let v=document.getElementById(id).value;r[id]=type==="date"?v:Number(v)}if(!r.days||r.days<1)return alert("Enter a valid day count");let i=records.findIndex(x=>x.period===r.period);if(i>=0){if(!confirm("Replace existing period "+r.period+"?"))return;records[i]=r}else records.push(r);save();alert("Month saved in this browser. Export a backup to keep a separate copy.")};document.getElementById("export").onclick=()=>{let blob=new Blob([JSON.stringify({records,listings},null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="hoc-seo-history.json";a.click();URL.revokeObjectURL(url)};document.getElementById("import").onchange=async e=>{try{let arr=JSON.parse(await e.target.files[0].text());if(!Array.isArray(arr)){if(!arr||!Array.isArray(arr.records))throw Error("Invalid backup");if(Array.isArray(arr.listings))listings=arr.listings;arr=arr.records}if(!arr.every(x=>typeof x.period==="string"&&Number.isFinite(x.clicks)))throw Error("Invalid backup");if(confirm("Replace local history with imported backup?")){records=arr;save();persistListings()}}catch(err){alert(err.message)}};render();drawListings();drawKeywords();drawKeywordDetails();drawReport();
+
+/* Automatically load the published original report, preserving browser edits. */
+async function preloadPublishedReport(){
+ try{
+  const response=await fetch("data/seo-nov-2026.json",{cache:"no-cache"});
+  if(!response.ok)throw Error("Report data HTTP "+response.status);
+  const doc=await response.json();
+  if(!doc.sheets||!Array.isArray(doc.sheets.Keywords))throw Error("Invalid published report");
+  const seen=new Set(listings.map(x=>x.url));
+  let count=0;
+  for(const [sheet,items] of Object.entries(doc.sheets)){
+   if(sheet==="Keywords")continue;
+   for(const item of items){
+    if(!safeUrl(item.url)||seen.has(item.url))continue;
+    seen.add(item.url);
+    listings.push({name:item.name||new URL(item.url).hostname,type:sheet,url:item.url,status:"claimed",teamStatus:item.teamStatus||"Not specified",sourceSheet:sheet,sourceRow:item.sourceRow,checked:"",history:[]});
+    count++;
+   }
+  }
+  if(!detailedKeywords.length){
+   detailedKeywords=doc.sheets.Keywords;
+   localStorage.setItem(keywordKey,JSON.stringify(detailedKeywords));
+  }
+  localStorage.setItem(listingKey,JSON.stringify(listings));
+  drawListings();
+  drawKeywords();
+  drawKeywordDetails();
+  drawReport();
+  const message=document.getElementById("teamImportMessage");
+  if(message)message.textContent="Original November 2026 team report loaded from GitHub automatically: "+doc.sheets.Keywords.length+" keywords and "+listings.length+" unique tracked URLs. Team-reported statuses are not independently verified.";
+  const note=document.getElementById("listingCount");
+  if(note)note.textContent+=" · Source: November 2026 SEO report";
+ }catch(error){
+  const message=document.getElementById("teamImportMessage");
+  if(message)message.textContent="Automatic report load failed: "+error.message+". You can still import the JSON manually.";
+  console.error("HOC report preload:",error);
+ }
+}
+preloadPublishedReport();
 </script></body></html>
