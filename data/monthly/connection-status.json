@@ -1,0 +1,50 @@
+{
+  "checkedDate": "2026-11-21",
+  "gsc": {
+    "state": "available",
+    "property": "sc-domain:hocfurniture.ae",
+    "start": "2026-11-12",
+    "end": "2026-11-18",
+    "rows": [
+      {
+        "date": "2026-11-12",
+        "clicks": 47,
+        "impressions": 4000
+      },
+      {
+        "date": "2026-11-13",
+        "clicks": 32,
+        "impressions": 4669
+      },
+      {
+        "date": "2026-11-14",
+        "clicks": 42,
+        "impressions": 4262
+      },
+      {
+        "date": "2026-11-15",
+        "clicks": 57,
+        "impressions": 4500
+      },
+      {
+        "date": "2026-11-16",
+        "clicks": 45,
+        "impressions": 4598
+      },
+      {
+        "date": "2026-11-17",
+        "clicks": 33,
+        "impressions": 4735
+      },
+      {
+        "date": "2026-11-18",
+        "clicks": 55,
+        "impressions": 3805
+      }
+    ]
+  },
+  "ga4": {
+    "state": "paused",
+    "detail": "The connected provider paused reads because its account limit was exceeded."
+  }
+}
