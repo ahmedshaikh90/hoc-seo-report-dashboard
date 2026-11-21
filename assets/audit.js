@@ -39,7 +39,12 @@
       link(keywordsRoot + snapshot.keywords, 'Keyword snapshot JSON'),
       link(keywordsRoot + '2026-11-21.json', 'Earlier Search Console snapshot')
     ].join(' · ');
-    $('auditGa4').textContent = audit.ga4.reason + ' Sessions and leads are unavailable for this snapshot.';
+    const analytics = snapshot.referrals ? await get('data/analytics/' + snapshot.referrals).catch(() => null) : null;
+    const referrals = new Map(analytics?.publishers.map(row => [row.domain, row]) || []);
+    $('auditGa4').textContent = analytics
+      ? 'GA4 publisher referrals · ' + analytics.period.startDate + ' to ' + analytics.period.endDate +
+        '. Sessions and key events apply to the whole publisher domain. Article-level leads require separate attribution. No source row means GA4 did not return that domain in this report.'
+      : audit.ga4.reason + ' Sessions and leads are unavailable for this snapshot.';
     $('auditKeywordMethod').textContent = keywords.method;
     $('auditKeywordTotals').innerHTML = [
       card('November GSC matches', keywords.summary.matched),
@@ -72,11 +77,13 @@
         '</td></tr>').join('') || '<tr><td colspan="4">No matching rows.</td></tr>';
     };
     $('auditGuestRows').innerHTML = audit.records.filter(row => row.category.includes('Guest Post')).map(row => {
+      const hostname = new URL(row.evidence[0].url).hostname;
+      const referral = referrals.get(hostname.replace(/^www\./, '').toLowerCase());
       const articles = row.evidence.filter(item => item.status === statuses[0] && item.backlinks?.length);
-      return '<tr><td>' + link(row.evidence[0].url, new URL(row.evidence[0].url).hostname) + '</td><td>' +
+      return '<tr><td>' + link(row.evidence[0].url, hostname) + '</td><td>' +
         esc(row.category) + '</td><td>' + (articles.length ? articles.map(item =>
           link(item.url, item.backlinks.length + ' HOC anchor record(s)')).join(', ') : esc(row.status)) +
-        '</td><td>' + esc(fmt(row.sessions)) + '</td><td>' + esc(fmt(row.leads)) + '</td></tr>';
+        '</td><td>' + esc(analytics && referral?.sessions == null ? 'No source row' : fmt(referral?.sessions ?? row.sessions)) + '</td><td>' + esc(fmt(referral?.keyEvents)) + '</td><td>' + esc(fmt(row.leads)) + '</td></tr>';
     }).join('');
     const renderKeywords = () => {
       const term = $('auditKeywordSearch').value.trim().toLowerCase();

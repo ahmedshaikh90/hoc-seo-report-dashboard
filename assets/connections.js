@@ -38,7 +38,19 @@
       return;
     }
     const data = connection.value;
-    state('ga', data.ga4.state === 'paused' ? 'Reads paused' : 'Unavailable', 'warn', data.ga4.detail);
+    const gaAvailable = data.ga4.state === 'available';
+    state('ga', gaAvailable ? 'Read verified' : data.ga4.state === 'paused' ? 'Reads paused' : 'Unavailable', gaAvailable ? 'ok' : 'warn', data.ga4.detail);
+    if (gaAvailable && data.ga4.referrals) {
+      try {
+        const referrals = await get(data.ga4.referrals);
+        const publishers = referrals.publishers.filter(row => row.sessions != null);
+        const sessions = publishers.reduce((sum, row) => sum + row.sessions, 0);
+        el('referralMetrics').textContent = format.format(sessions) + ' sessions from ' + publishers.length + ' publisher domains';
+        el('referralPeriod').textContent = referrals.period.startDate + ' to ' + referrals.period.endDate;
+      } catch {
+        el('referralMetrics').textContent = 'The referral snapshot could not be loaded.';
+      }
+    }
     if (data.gsc.state !== 'available' || !data.gsc.rows.length) {
       state('gsc', 'Unavailable', 'warn', 'The last check returned no Search Console data.');
       return;

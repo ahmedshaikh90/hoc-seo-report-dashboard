@@ -1,0 +1,87 @@
+{
+  "checkedDate": "2026-11-21",
+  "source": "Google Analytics 4 via OpenSEO",
+  "property": "HOC Furniture",
+  "period": {
+    "startDate": "2026-09-01",
+    "endDate": "2026-11-18"
+  },
+  "scope": "session source / medium",
+  "publishers": [
+    {
+      "domain": "dubaiweeklys.com",
+      "sessions": null,
+      "keyEvents": null
+    },
+    {
+      "domain": "techbullion.com",
+      "sessions": null,
+      "keyEvents": null
+    },
+    {
+      "domain": "uaehelper.com",
+      "sessions": null,
+      "keyEvents": null
+    },
+    {
+      "domain": "dayofdubai.com",
+      "sessions": 2,
+      "keyEvents": 1
+    },
+    {
+      "domain": "uaeedge.com",
+      "sessions": 7,
+      "keyEvents": 4
+    },
+    {
+      "domain": "kayfuae.com",
+      "sessions": 1,
+      "keyEvents": 0
+    },
+    {
+      "domain": "khaleejemirates.com",
+      "sessions": 2,
+      "keyEvents": 0
+    },
+    {
+      "domain": "gulfemarat.com",
+      "sessions": 1,
+      "keyEvents": 0
+    },
+    {
+      "domain": "eyeofuae.com",
+      "sessions": 1,
+      "keyEvents": 0
+    },
+    {
+      "domain": "blogpulseguru.com",
+      "sessions": null,
+      "keyEvents": null
+    },
+    {
+      "domain": "hasster.com",
+      "sessions": null,
+      "keyEvents": null
+    },
+    {
+      "domain": "theconsumersfeedback.com",
+      "sessions": null,
+      "keyEvents": null
+    },
+    {
+      "domain": "hocfurniture.thezenweb.com",
+      "sessions": null,
+      "keyEvents": null
+    },
+    {
+      "domain": "hocfurniture.pointblog.net",
+      "sessions": null,
+      "keyEvents": null
+    },
+    {
+      "domain": "hocfurniture.blogdigy.com",
+      "sessions": null,
+      "keyEvents": null
+    }
+  ]
+}

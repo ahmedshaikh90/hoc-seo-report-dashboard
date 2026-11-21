@@ -52,3 +52,21 @@ main :is(button, a, input, select, summary):focus-visible { outline: 3px solid #
   #overview .overview-actions { width: 100%; justify-content: space-between; }
   body nav button { white-space: nowrap; }
 }
+
+#overview .referral-overview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+  border-left: 4px solid #77916c !important;
+}
+#overview .referral-overview h3 { margin-bottom: .5rem; }
+#overview .referral-overview p:last-child { margin-bottom: 0; }
+#overview #openReferrals, #overview #openSeoUrls {
+  background: #3c5744 !important;
+  color: white !important;
+  border-color: #3c5744 !important;
+}
+#audit-guest td:nth-child(4), #audit-guest td:nth-child(5) { font-variant-numeric: tabular-nums; }

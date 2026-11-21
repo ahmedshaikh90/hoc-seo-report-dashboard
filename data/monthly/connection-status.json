@@ -44,7 +44,8 @@
     ]
   },
   "ga4": {
-    "state": "paused",
-    "detail": "The connected provider paused reads because its account limit was exceeded."
+    "state": "available",
+    "detail": "HOC Furniture property read successfully through OpenSEO. Checked 21 November 2026.",
+    "referrals": "data/analytics/2026-11-21-referrals.json"
   }
 }

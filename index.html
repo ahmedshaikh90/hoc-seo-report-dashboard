@@ -103,6 +103,10 @@ nav button{display:block!important;visibility:visible!important;opacity:1!import
     <div class="panel"><h3>Monthly organic clicks</h3><div id="bars"></div></div>
     <div class="panel"><h3>Latest Search Console week</h3><p class="weekly-metrics" id="weeklyMetrics">Awaiting source data</p><p class="muted" id="weeklyPeriod"></p><div class="weekly-bars" id="weeklyBars" role="group" aria-label="Daily organic clicks"></div></div>
   </div>
+  <div class="panel referral-overview">
+    <div><h3>Guest-post publisher referrals</h3><p class="weekly-metrics" id="referralMetrics">Awaiting GA4 snapshot</p><p class="muted" id="referralPeriod"></p><p class="muted">GA4 measures traffic by publisher domain here. Individual article leads are unavailable.</p></div>
+    <button type="button" id="openReferrals">View publisher breakdown</button>
+  </div>
   <h3 class="source-heading">Data sources</h3>
   <div class="source-grid">
     <div class="source-card"><h4>Google Search Console</h4><span class="source-state" id="gscState" data-tone="pending">Checking</span><p id="gscDetail">The dashboard uses dated exports.</p></div>
@@ -123,7 +127,7 @@ nav button{display:block!important;visibility:visible!important;opacity:1!import
   </div>
   <div id="audit-guest" class="panel">
     <h3>Guest posts and referrals</h3><p id="auditGa4"></p>
-    <div class="table-wrap"><table><thead><tr><th scope="col">Publisher</th><th scope="col">Placement type</th><th scope="col">Backlink evidence</th><th scope="col">GA4 sessions</th><th scope="col">GA4 leads</th></tr></thead><tbody id="auditGuestRows"></tbody></table></div>
+    <div class="table-wrap"><table><thead><tr><th scope="col">Publisher</th><th scope="col">Placement type</th><th scope="col">Backlink evidence</th><th scope="col">Publisher sessions</th><th scope="col">Publisher key events</th><th scope="col">Article leads</th></tr></thead><tbody id="auditGuestRows"></tbody></table></div>
   </div>
   <div id="audit-keywords" class="panel">
     <h3>Team rankings and Search Console position</h3><p id="auditKeywordMethod"></p>
@@ -258,5 +262,9 @@ async function loadDatedKeywordAudit(){
  } catch(error) { console.error("GSC snapshot",error); }
 }
 document.getElementById("openAuditReports").onclick=event=>{event.preventDefault();document.querySelector("nav button[data-tab=audit]").click()};
+document.getElementById("openReferrals").onclick=()=>{
+ document.querySelector("nav button[data-tab=audit]").click();
+ document.getElementById("audit-guest").scrollIntoView();
+};
 preloadPublishedReport().then(loadDatedKeywordAudit);
 </script><script src="assets/audit.js" defer></script><script src="assets/connections.js" defer></script></body></html>
