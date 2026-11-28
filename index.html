@@ -90,7 +90,7 @@ nav button{display:block!important;visibility:visible!important;opacity:1!import
 #audit .controls label { font-size: .875rem; color: var(--text); }
 #audit input, #audit select { display: block; margin-top: .25rem; }
 #audit details p { margin: .35rem 0; }
-</style><link rel="stylesheet" href="assets/dashboard.css"></head><body class="light"><header><div class="brand"><img id="officialLogo" class="logo" alt="Official HOC Furniture logo" style="object-fit:contain;padding:4px;background:#fff"><div><h1>HOC Furniture <span style="color:#a2a475">SEO Dashboard</span></h1><small>Search performance and audit history</small></div><div class="header-right"><button id="theme" type="button">☀ Light mode</button></div></div></header><main><nav><button class="active" data-tab="overview">Overview</button><button data-tab="history">Monthly History</button><button data-tab="audit">Audit evidence</button><button data-tab="keywords">Keywords</button><button data-tab="listings">Listings & Backlinks</button><button data-tab="reports">Reports</button><button data-tab="update">Add Month / Backup</button></nav><section id="overview" class="active">
+</style><link rel="stylesheet" href="assets/dashboard.css"></head><body class="light"><header><div class="brand"><img id="officialLogo" class="logo" alt="Official HOC Furniture logo" style="object-fit:contain;padding:4px;background:#fff"><div><h1>HOC Furniture <span style="color:#a2a475">SEO Dashboard</span></h1><small>Search performance and audit history</small></div><div class="header-right"><button id="theme" type="button">☀ Light mode</button></div></div></header><main><nav><button class="active" data-tab="overview">Overview</button><button data-tab="history">Monthly History</button><button data-tab="audit">Audit evidence</button><button data-tab="keywords">Keywords</button><button data-tab="listings">Listings & Backlinks</button><button data-tab="reports">Reports</button><button data-tab="update">Add Month / Backup</button><button data-tab="googleAds">Google Ads</button><button data-tab="metaAds">Meta Ads</button></nav><section id="overview" class="active">
   <div class="overview-heading">
     <div><h2>Search performance</h2><p class="muted">Monthly trend, latest Search Console data and source availability</p></div>
     <div class="overview-actions">
@@ -149,7 +149,23 @@ nav button{display:block!important;visibility:visible!important;opacity:1!import
     <div class="table-wrap audit-scroll"><table><thead><tr><th scope="col">Query</th><th scope="col">Team Sep → Oct → Nov</th><th scope="col">GSC Sep</th><th scope="col">GSC Oct</th><th scope="col">GSC Nov</th><th scope="col">GSC Oct to Nov</th><th scope="col">Nov GSC minus team</th></tr></thead><tbody id="auditKeywordRows"></tbody></table></div>
   </div>
 </section>
-<section id="reports"><h2>Report center</h2><p><a href="#audit" id="openAuditReports">Open the monthly evidence and snapshot archive</a></p><div class="controls"><label>Report frequency <select id="frequency"><option value="monthly">Monthly</option><option value="weekly">Weekly</option><option value="daily">Daily</option></select></label><label>Report section <select id="reportSection"><option value="all">All metrics</option><option value="traffic">Google traffic</option><option value="rankings">Keyword rankings</option><option value="listings">Listings</option></select></label><button id="printReport">Print / Save PDF</button><button id="exportReport">Export history CSV</button></div><div class="hint" id="reportNote"></div><div class="panel" id="reportContent"></div><div id="visitComparison"><h3>Website visit comparisons</h3><p>Source: HOC Furniture Google Analytics 4. Visits are website sessions. The monthly comparison uses the same elapsed days in each month. Physical showroom walk-in counts are unavailable in GA4.</p><p>The monthly increase is concentrated in GA4’s Direct channel. The report does not establish what drove that increase.</p><div class="panel"><h3>Weekly visits</h3><div class="table-wrap"><table><thead><tr><th scope="col">GA4 channel</th><th scope="col">14–20 Nov 2026</th><th scope="col">21–27 Nov 2026</th><th scope="col">Change</th></tr></thead><tbody><tr><th scope="row">All website sessions</th><td>20,697</td><td>16,557</td><td>-20.0%</td></tr><tr><th scope="row">Sessions excluding Direct</th><td>2,179</td><td>1,587</td><td>-27.2%</td></tr><tr><th scope="row">Direct</th><td>18,518</td><td>14,970</td><td>-19.2%</td></tr><tr><th scope="row">Paid Shopping</th><td>629</td><td>569</td><td>-9.5%</td></tr><tr><th scope="row">Organic Search</th><td>458</td><td>494</td><td>+7.9%</td></tr><tr><th scope="row">Unassigned</th><td>390</td><td>211</td><td>-45.9%</td></tr><tr><th scope="row">AI Assistant</th><td>131</td><td>131</td><td>0.0%</td></tr><tr><th scope="row">Paid Search</th><td>61</td><td>67</td><td>+9.8%</td></tr><tr><th scope="row">Cross-network</th><td>50</td><td>37</td><td>-26.0%</td></tr><tr><th scope="row">Display</th><td>352</td><td>24</td><td>-93.2%</td></tr><tr><th scope="row">Organic Shopping</th><td>47</td><td>22</td><td>-53.2%</td></tr><tr><th scope="row">Referral</th><td>40</td><td>22</td><td>-45.0%</td></tr><tr><th scope="row">Organic Social</th><td>16</td><td>9</td><td>-43.8%</td></tr><tr><th scope="row">Paid Social</th><td>5</td><td>1</td><td>-80.0%</td></tr></tbody></table></div></div><div class="panel"><h3>Monthly visits · month to date</h3><div class="table-wrap"><table><thead><tr><th scope="col">GA4 channel</th><th scope="col">1–27 Oct 2026</th><th scope="col">1–27 Nov 2026</th><th scope="col">Change</th></tr></thead><tbody><tr><th scope="row">All website sessions</th><td>14,632</td><td>46,624</td><td>+218.6%</td></tr><tr><th scope="row">Sessions excluding Direct</th><td>8,850</td><td>7,367</td><td>-16.8%</td></tr><tr><th scope="row">Direct</th><td>5,782</td><td>39,257</td><td>+579.0%</td></tr><tr><th scope="row">Organic Search</th><td>2,959</td><td>1,953</td><td>-34.0%</td></tr><tr><th scope="row">Paid Shopping</th><td>2,717</td><td>2,301</td><td>-15.3%</td></tr><tr><th scope="row">Display</th><td>915</td><td>995</td><td>+8.7%</td></tr><tr><th scope="row">Cross-network</th><td>717</td><td>256</td><td>-64.3%</td></tr><tr><th scope="row">AI Assistant</th><td>457</td><td>502</td><td>+9.8%</td></tr><tr><th scope="row">Referral</th><td>444</td><td>99</td><td>-77.7%</td></tr><tr><th scope="row">Unassigned</th><td>363</td><td>848</td><td>+133.6%</td></tr><tr><th scope="row">Paid Search</th><td>104</td><td>205</td><td>+97.1%</td></tr><tr><th scope="row">Organic Shopping</th><td>96</td><td>147</td><td>+53.1%</td></tr><tr><th scope="row">Organic Social</th><td>72</td><td>48</td><td>-33.3%</td></tr><tr><th scope="row">Paid Social</th><td>5</td><td>7</td><td>+40.0%</td></tr><tr><th scope="row">Organic Video</th><td>1</td><td>6</td><td>+500.0%</td></tr></tbody></table></div></div></div></section><section id="update"><h2>Add monthly results</h2><div class="panel"><h3>Import original SEO team report</h3><p class="muted">Import the JSON prepared from your original November workbook. It includes URL records across all activity categories and 97 keywords. Import is merged by URL and does not overwrite manually reviewed statuses.</p><input type="file" id="teamReportImport" accept=".json,application/json"><p id="teamImportMessage" class="muted">Original report data has not been imported in this browser.</p></div><p class="hint"><strong>Monthly workflow:</strong> Upload your new SEO report in our ChatGPT conversation. I can review the file and update the GitHub dashboard data. This public static website cannot automatically read files uploaded to ChatGPT or safely store private business reports.</p><p class="muted">Data entered here is saved only in this browser. Export a backup before clearing browser data or changing devices. This public website has no private database or login.</p><form id="entry" class="panel"><div class="form" id="fields"></div><p><button type="submit">Save month</button> <button type="button" id="export">Export JSON backup</button> <label style="display:inline-block">Import JSON backup <input type="file" id="import" accept=".json,application/json"></label></p></form></section></main><footer>HOC Furniture · Internal management reporting interface · Public demo hosting</footer><script>
+<section id="reports"><h2>Report center</h2><p><a href="#audit" id="openAuditReports">Open the monthly evidence and snapshot archive</a></p><div class="controls"><label>Report frequency <select id="frequency"><option value="monthly">Monthly</option><option value="weekly">Weekly</option><option value="daily">Daily</option></select></label><label>Report section <select id="reportSection"><option value="all">All metrics</option><option value="traffic">Google traffic</option><option value="rankings">Keyword rankings</option><option value="listings">Listings</option></select></label><button id="printReport">Print / Save PDF</button><button id="exportReport">Export history CSV</button></div><div class="hint" id="reportNote"></div><div class="panel" id="reportContent"></div><div id="visitComparison"><h3>Website visit comparisons</h3><p>Source: HOC Furniture Google Analytics 4. Visits are website sessions. The monthly comparison uses the same elapsed days in each month. Physical showroom walk-in counts are unavailable in GA4.</p><p>The monthly increase is concentrated in GA4’s Direct channel. The report does not establish what drove that increase.</p><div class="panel"><h3>Weekly visits</h3><div class="table-wrap"><table><thead><tr><th scope="col">GA4 channel</th><th scope="col">14–20 Nov 2026</th><th scope="col">21–27 Nov 2026</th><th scope="col">Change</th></tr></thead><tbody><tr><th scope="row">All website sessions</th><td>20,697</td><td>16,557</td><td>-20.0%</td></tr><tr><th scope="row">Sessions excluding Direct</th><td>2,179</td><td>1,587</td><td>-27.2%</td></tr><tr><th scope="row">Direct</th><td>18,518</td><td>14,970</td><td>-19.2%</td></tr><tr><th scope="row">Paid Shopping</th><td>629</td><td>569</td><td>-9.5%</td></tr><tr><th scope="row">Organic Search</th><td>458</td><td>494</td><td>+7.9%</td></tr><tr><th scope="row">Unassigned</th><td>390</td><td>211</td><td>-45.9%</td></tr><tr><th scope="row">AI Assistant</th><td>131</td><td>131</td><td>0.0%</td></tr><tr><th scope="row">Paid Search</th><td>61</td><td>67</td><td>+9.8%</td></tr><tr><th scope="row">Cross-network</th><td>50</td><td>37</td><td>-26.0%</td></tr><tr><th scope="row">Display</th><td>352</td><td>24</td><td>-93.2%</td></tr><tr><th scope="row">Organic Shopping</th><td>47</td><td>22</td><td>-53.2%</td></tr><tr><th scope="row">Referral</th><td>40</td><td>22</td><td>-45.0%</td></tr><tr><th scope="row">Organic Social</th><td>16</td><td>9</td><td>-43.8%</td></tr><tr><th scope="row">Paid Social</th><td>5</td><td>1</td><td>-80.0%</td></tr></tbody></table></div></div><div class="panel"><h3>Monthly visits · month to date</h3><div class="table-wrap"><table><thead><tr><th scope="col">GA4 channel</th><th scope="col">1–27 Oct 2026</th><th scope="col">1–27 Nov 2026</th><th scope="col">Change</th></tr></thead><tbody><tr><th scope="row">All website sessions</th><td>14,632</td><td>46,624</td><td>+218.6%</td></tr><tr><th scope="row">Sessions excluding Direct</th><td>8,850</td><td>7,367</td><td>-16.8%</td></tr><tr><th scope="row">Direct</th><td>5,782</td><td>39,257</td><td>+579.0%</td></tr><tr><th scope="row">Organic Search</th><td>2,959</td><td>1,953</td><td>-34.0%</td></tr><tr><th scope="row">Paid Shopping</th><td>2,717</td><td>2,301</td><td>-15.3%</td></tr><tr><th scope="row">Display</th><td>915</td><td>995</td><td>+8.7%</td></tr><tr><th scope="row">Cross-network</th><td>717</td><td>256</td><td>-64.3%</td></tr><tr><th scope="row">AI Assistant</th><td>457</td><td>502</td><td>+9.8%</td></tr><tr><th scope="row">Referral</th><td>444</td><td>99</td><td>-77.7%</td></tr><tr><th scope="row">Unassigned</th><td>363</td><td>848</td><td>+133.6%</td></tr><tr><th scope="row">Paid Search</th><td>104</td><td>205</td><td>+97.1%</td></tr><tr><th scope="row">Organic Shopping</th><td>96</td><td>147</td><td>+53.1%</td></tr><tr><th scope="row">Organic Social</th><td>72</td><td>48</td><td>-33.3%</td></tr><tr><th scope="row">Paid Social</th><td>5</td><td>7</td><td>+40.0%</td></tr><tr><th scope="row">Organic Video</th><td>1</td><td>6</td><td>+500.0%</td></tr></tbody></table></div></div></div></section><section id="googleAds"><h2>Google Ads</h2>
+<div class="panel" data-ad-report="googleAds">
+<p class="hint">Live reporting is paused at the connected provider. Import a platform CSV to view its data here. Files stay in this browser.</p>
+<p>Export Campaigns, Ad groups, Ads, Keywords or Search terms for your chosen date range. Include the metrics you want displayed, such as cost, impressions, clicks, conversions and conversion value.</p>
+<div class="controls"><label>Import CSV reports <input type="file" accept=".csv,text/csv" multiple data-ad-files></label><label>Report <select data-ad-sheet aria-label="Imported report"></select></label><label>Search rows <input type="search" data-ad-search placeholder="Campaign, date, or metric"></label></div>
+<p role="status" data-ad-status>No report loaded.</p>
+<div class="table-wrap"><table><thead data-ad-head></thead><tbody data-ad-body></tbody></table></div>
+<div class="controls"><button type="button" data-ad-prev>Previous page</button><button type="button" data-ad-next>Next page</button><span data-ad-page></span><button type="button" data-ad-clear>Clear browser copies</button></div>
+</div></section><section id="metaAds"><h2>Meta Ads</h2>
+<div class="panel" data-ad-report="metaAds">
+<p class="hint">Live reporting is paused at the connected provider. Import a platform CSV to view its data here. Files stay in this browser.</p>
+<p>Export Campaigns, Ad sets or Ads from Ads Manager. Include amount spent, reach, impressions, link clicks, results, leads and purchase value where available.</p>
+<div class="controls"><label>Import CSV reports <input type="file" accept=".csv,text/csv" multiple data-ad-files></label><label>Report <select data-ad-sheet aria-label="Imported report"></select></label><label>Search rows <input type="search" data-ad-search placeholder="Campaign, date, or metric"></label></div>
+<p role="status" data-ad-status>No report loaded.</p>
+<div class="table-wrap"><table><thead data-ad-head></thead><tbody data-ad-body></tbody></table></div>
+<div class="controls"><button type="button" data-ad-prev>Previous page</button><button type="button" data-ad-next>Next page</button><span data-ad-page></span><button type="button" data-ad-clear>Clear browser copies</button></div>
+</div></section><section id="update"><h2>Add monthly results</h2><div class="panel"><h3>Import original SEO team report</h3><p class="muted">Import the JSON prepared from your original November workbook. It includes URL records across all activity categories and 97 keywords. Import is merged by URL and does not overwrite manually reviewed statuses.</p><input type="file" id="teamReportImport" accept=".json,application/json"><p id="teamImportMessage" class="muted">Original report data has not been imported in this browser.</p></div><p class="hint"><strong>Monthly workflow:</strong> Upload your new SEO report in our ChatGPT conversation. I can review the file and update the GitHub dashboard data. This public static website cannot automatically read files uploaded to ChatGPT or safely store private business reports.</p><p class="muted">Data entered here is saved only in this browser. Export a backup before clearing browser data or changing devices. This public website has no private database or login.</p><form id="entry" class="panel"><div class="form" id="fields"></div><p><button type="submit">Save month</button> <button type="button" id="export">Export JSON backup</button> <label style="display:inline-block">Import JSON backup <input type="file" id="import" accept=".json,application/json"></label></p></form></section></main><footer>HOC Furniture · Internal management reporting interface · Public demo hosting</footer><script>
 const seed=[{period:"2026-09-20",days:31,clicks:1516,impressions:134026,position:17.8413,top3:25,top10:47,top20:58},{period:"2026-10-20",days:30,clicks:1560,impressions:131997,position:14.3634,top3:16,top10:37,top20:52},{period:"2026-11-18",days:29,clicks:1295,impressions:130924,position:16.1269,top3:17,top10:43,top20:62}];const key="hoc-seo-dashboard-v1";const listingKey="hoc-seo-listings-v2";const keywordKey="hoc-seo-keyword-history-v1";let detailedKeywords=[];try{detailedKeywords=JSON.parse(localStorage.getItem(keywordKey))||[]}catch{}let listings;try{listings=JSON.parse(localStorage.getItem(listingKey))||[]}catch{listings=[]}let sourceKeywords=[];try{sourceKeywords=JSON.parse(localStorage.getItem("hoc-source-keywords")||"[]")}catch{}function persistListings(){localStorage.setItem(listingKey,JSON.stringify(listings));drawListings()}function esc(x){return String(x??"").replace(/[&<>"\x27]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","\x27":"&#39;"}[c]))}function safeUrl(s){try{let u=new URL(s);return ["https:","http:"].includes(u.protocol)?u.href:null}catch{return null}}let records;try{records=JSON.parse(localStorage.getItem(key))||seed}catch{records=seed}function save(){records.sort((a,b)=>a.period.localeCompare(b.period));localStorage.setItem(key,JSON.stringify(records));render()}const fmt=n=>Number(n).toLocaleString("en-US",{maximumFractionDigits:2});const fields=[["period","Period end date","date"],["days","Days covered","number"],["clicks","Google clicks","number"],["impressions","Impressions","number"],["position","Average position","number"],["top3","Top 3 keywords","number"],["top10","Top 10 keywords","number"],["top20","Top 20 keywords","number"]];document.getElementById("fields").innerHTML=fields.map(([id,label,type])=>'<div><label for="'+id+'">'+label+'</label><input id="'+id+'" type="'+type+'" step="'+(id==="position"?"any":"1")+'" required></div>').join("");document.getElementById("openSeoUrls").onclick=()=>{document.querySelector("nav button[data-tab=audit]").click()};document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll("nav button,section").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.getElementById(b.dataset.tab).classList.add("active")});function render(){const select=document.getElementById("period");const selected=select.value;select.innerHTML=records.map((r,i)=>'<option value="'+i+'">'+r.period+'</option>').join("");select.value=selected&&Number(selected)<records.length?selected:String(records.length-1);show();document.getElementById("historyRows").innerHTML=records.map(r=>'<tr><td>'+r.period+'</td><td>'+r.days+'</td><td>'+fmt(r.clicks)+'</td><td>'+fmt(r.clicks/r.days)+'</td><td>'+fmt(r.impressions)+'</td><td>'+fmt(r.position)+'</td><td>'+fmt(r.top10)+'</td></tr>').join("");document.getElementById("keywordRows").innerHTML=records.map(r=>'<tr><td>'+r.period+'</td><td>'+fmt(r.top3)+'</td><td>'+fmt(r.top10)+'</td><td>'+fmt(r.top20)+'</td><td>Team snapshot</td></tr>').join("")}function show(){let i=Number(document.getElementById("period").value),r=records[i],p=records[i-1];if(!r)return;const metrics=[["Organic clicks","clicks",false],["Clicks per day","daily",false],["Impressions","impressions",false],["Click-through rate","ctr",false],["Average position","position",true],["Top 3 keywords","top3",false],["Top 10 keywords","top10",false],["Top 20 keywords","top20",false]];const val=(x,k)=>k==="daily"?x.clicks/x.days:k==="ctr"?x.clicks/x.impressions*100:x[k];document.getElementById("cards").innerHTML=metrics.map(([name,k,invert])=>{let n=val(r,k),old=p?val(p,k):null,d=old==null?null:n-old,good=d!=null&&(invert?d<0:d>0),cls=d==null||d===0?"flat":good?"up":"down",arrow=d==null?"NO BASELINE":d===0?"→ SAME":good?"▲ BETTER":"▼ WORSE",delta=old?((n-old)/old*100).toFixed(1)+"%":"";return '<div class="card"><small>'+name+'</small><strong>'+fmt(n)+(k==="ctr"?"%":"")+'</strong><span class="'+cls+'">'+arrow+' '+delta+'</span></div>'}).join("");let max=Math.max(...records.map(x=>x.clicks));document.getElementById("bars").innerHTML=records.map(x=>'<div style="margin:13px 0"><small>'+x.period+' · '+fmt(x.clicks)+' clicks</small><div style="height:19px;background:#213b56;border-radius:5px;margin-top:6px"><div style="height:100%;width:'+(x.clicks/max*100)+'%;background:#77794a;border-radius:5px"></div></div></div>').join("")}document.getElementById("theme").onclick=()=>{document.body.classList.toggle("light");let light=document.body.classList.contains("light");localStorage.setItem("hoc-theme",light?"light":"dark");document.getElementById("theme").textContent=light?"☾ Dark mode":"☀ Light mode"};if(localStorage.getItem("hoc-theme")==="dark")document.getElementById("theme").click();else document.getElementById("theme").textContent="☾ Dark mode";
 function drawKeywordDetails(){drawKeywords()};function seoVerificationStatus(r){
  const s=r.audit?.status;
@@ -280,4 +296,105 @@ document.getElementById("openReferrals").onclick=()=>{
  document.getElementById("audit-guest").scrollIntoView();
 };
 preloadPublishedReport().then(loadDatedKeywordAudit);
-</script><script src="assets/audit.js" defer></script><script src="assets/connections.js" defer></script></body></html>
+</script><script src="assets/audit.js" defer></script><script src="assets/connections.js" defer></script><script>
+(() => {
+ function parseAdCsv(text) {
+  const rows = [];
+  let row = [], field = '', quoted = false;
+  text = text.replace(/^\uFEFF/, '');
+  for (let i = 0; i < text.length; i++) {
+   const ch = text[i];
+   if (quoted) {
+    if (ch === '"' && text[i + 1] === '"') { field += '"'; i++; }
+    else if (ch === '"') quoted = false;
+    else field += ch;
+   } else if (ch === '"' && !field) quoted = true;
+   else if (ch === ',') { row.push(field); field = ''; }
+   else if (ch === '\n' || ch === '\r') {
+    if (ch === '\r' && text[i + 1] === '\n') i++;
+    rows.push([...row, field]); row = []; field = '';
+   } else field += ch;
+  }
+  if (quoted) throw new Error('Unclosed quoted field');
+  if (row.length || field) rows.push([...row, field]);
+  const header = rows.findIndex(cells => cells.length > 1 && cells.some(v =>
+   /^(campaign( name)?|ad group|ad set name|ad name|reporting starts|day|date)$/i.test(v.trim())));
+  const first = header < 0 ? rows.findIndex(cells => cells.length > 1) : header;
+  if (first < 0) throw new Error('No CSV table found');
+  const body = rows.slice(first + 1).filter(cells => cells.some(v => v.trim()));
+  const width = body.reduce((n, cells) => Math.max(n, cells.length), rows[first].length);
+  return { headers: Array.from({length: width}, (_, i) => rows[first][i] || 'Column ' + (i + 1)), body };
+ }
+ document.querySelectorAll('[data-ad-report]').forEach(panel => {
+  const control = name => panel.querySelector('[data-ad-' + name + ']');
+  const key = 'hoc-ad-exports-' + panel.dataset.adReport;
+  const select = control('sheet'), search = control('search'), status = control('status');
+  const prev = control('prev'), next = control('next'), clear = control('clear');
+  const size = 50;
+  let reports = [], page = 0;
+  try { reports = JSON.parse(localStorage.getItem(key) || '[]'); } catch {}
+  function drawRow(cells, tag) {
+   const tr = document.createElement('tr');
+   cells.forEach(value => {
+    const cell = document.createElement(tag);
+    cell.textContent = value;
+    if (tag === 'th') cell.scope = 'col';
+    tr.append(cell);
+   });
+   return tr;
+  }
+  function render() {
+   const report = reports[select.value];
+   const query = search.value.trim().toLowerCase();
+   const rows = report ? report.body.filter(row => !query || row.some(cell => cell.toLowerCase().includes(query))) : [];
+   const count = Math.ceil(rows.length / size);
+   page = Math.min(page, Math.max(0, count - 1));
+   control('head').replaceChildren(...(report ? [drawRow(report.headers, 'th')] : []));
+   control('body').replaceChildren(...rows.slice(page * size, (page + 1) * size).map(row =>
+    drawRow(report.headers.map((_, i) => row[i] ?? ''), 'td')));
+   control('page').textContent = report ? rows.length + ' of ' + report.body.length + ' rows · page ' + (count ? page + 1 : 0) + ' of ' + count : '';
+   prev.disabled = page === 0;
+   next.disabled = page + 1 >= count;
+   clear.disabled = !reports.length;
+  }
+  function options(selected) {
+   select.replaceChildren(...reports.map((report, i) => new Option(report.name, i)));
+   if (reports.length) select.selectedIndex = selected;
+   page = 0;
+   render();
+  }
+  function persist() {
+   try { localStorage.setItem(key, JSON.stringify(reports)); return true; }
+   catch { return false; }
+  }
+  control('files').onchange = async event => {
+   const notes = [];
+   let selected = Math.max(0, select.selectedIndex);
+   for (const file of event.target.files) {
+    try {
+     const report = {name: file.name, ...parseAdCsv(await file.text())};
+     const existing = reports.findIndex(item => item.name === file.name);
+     selected = existing < 0 ? reports.length : existing;
+     reports[selected] = report;
+     notes.push(file.name + ' loaded');
+    } catch (error) { notes.push(file.name + ' · ' + error.message); }
+   }
+   if (!persist()) notes.push('Browser storage is full or disabled. These imports are available until reload.');
+   status.textContent = notes.join(' · ');
+   event.target.value = '';
+   options(selected);
+  };
+  select.onchange = search.oninput = () => { page = 0; render(); };
+  prev.onclick = () => { page--; render(); };
+  next.onclick = () => { page++; render(); };
+  clear.onclick = () => {
+   reports = [];
+   const saved = persist();
+   status.textContent = saved ? 'Browser copies cleared.' : 'Reports cleared for this session. Browser storage could not be updated.';
+   options(0);
+  };
+  status.textContent = reports.length ? reports.length + ' saved CSV report(s) available.' : 'No report loaded.';
+  options(0);
+ });
+})();
+</script></body></html>
